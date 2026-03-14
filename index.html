@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nyxel Studios | Premium Digital Agency</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        nyxBlack: '#0a0a0c',
+                        nyxRed: '#ff003c',
+                        nyxCyan: '#00f0ff',
+                        nyxDarkRed: '#4a0011'
+                    },
+                    fontFamily: {
+                        orbitron: ['Orbitron', 'sans-serif'],
+                        rajdhani: ['Rajdhani', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #0a0a0c;
+            background-image: radial-gradient(circle at center, #1a0006 0%, #0a0a0c 100%);
+            color: #e0e0e0;
+            overflow-x: hidden;
+        }
+
+        /* Typography Defaults */
+        h1, h2, h3, .nav-link { font-family: 'Orbitron', sans-serif; }
+        p, span, div { font-family: 'Rajdhani', sans-serif; }
+
+        /* Glassmorphism Classes */
+        .glass-panel {
+            background: rgba(20, 20, 25, 0.6);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 0, 60, 0.2);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+            transition: all 0.3s ease;
+        }
+        
+        .glass-panel:hover {
+            border-color: rgba(0, 240, 255, 0.5);
+            box-shadow: 0 0 20px rgba(0, 240, 255, 0.1);
+        }
+
+        /* Neon Text Utilities */
+        .text-neon-red {
+            color: #ff003c;
+            text-shadow: 0 0 5px #ff003c, 0 0 10px #ff003c;
+        }
+        .text-neon-cyan {
+            color: #00f0ff;
+            text-shadow: 0 0 5px #00f0ff, 0 0 15px #00f0ff;
+        }
+
+        /* Intro Animation Loader */
+        #intro-loader {
+            position: fixed;
+            inset: 0;
+            background: #0a0a0c;
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: opacity 0.8s ease, visibility 0.8s;
+        }
+        .glitch-logo {
+            font-size: 4rem;
+            font-weight: 900;
+            animation: pulse-glow 2s infinite alternate;
+        }
+        @keyframes pulse-glow {
+            0% { text-shadow: 0 0 10px #ff003c; opacity: 0.8; }
+            100% { text-shadow: 0 0 30px #ff003c, 0 0 50px #ff003c; opacity: 1; }
+        }
+
+        /* SPA Page Transitions */
+        .page-section {
+            display: none;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: slideUpFade 0.6s forwards ease-out;
+        }
+        .page-section.active {
+            display: block;
+        }
+        @keyframes slideUpFade {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #0a0a0c; }
+        ::-webkit-scrollbar-thumb { background: #ff003c; border-radius: 4px; }
+    </style>
+</head>
+<body class="font-rajdhani text-lg antialiased selection:bg-nyxRed selection:text-white">
+
+    <div id="intro-loader">
+        <h1 class="glitch-logo text-nyxRed font-orbitron tracking-widest">NYXEL</h1>
+    </div>
+
+    <nav class="fixed w-full z-50 top-0 transition-all duration-300">
+        <div class="glass-panel mx-auto mt-4 w-[95%] max-w-6xl rounded-2xl flex justify-between items-center px-8 py-4">
+            <a href="#home" class="text-2xl font-bold tracking-wider text-white hover:text-nyxRed transition-colors" data-link>
+                NYXEL<span class="text-nyxCyan">.</span>
+            </a>
+            <div class="hidden md:flex space-x-8">
+                <a href="#home" class="nav-link text-sm uppercase tracking-widest hover:text-nyxCyan transition-colors" data-link>Home</a>
+                <a href="#services" class="nav-link text-sm uppercase tracking-widest hover:text-nyxCyan transition-colors" data-link>Services</a>
+                <a href="#portfolio" class="nav-link text-sm uppercase tracking-widest hover:text-nyxCyan transition-colors" data-link>Work</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="pt-32 pb-20 px-6 max-w-7xl mx-auto min-h-screen">
+
+        <section id="home" class="page-section active flex flex-col items-center justify-center min-h-[70vh] text-center">
+            <h1 class="text-5xl md:text-7xl font-black mb-6 tracking-tight leading-tight">
+                ENGINEERING <br> <span class="text-transparent bg-clip-text bg-gradient-to-r from-nyxRed to-nyxCyan">DIGITAL REALITIES</span>
+            </h1>
+            <p class="text-xl md:text-2xl text-gray-400 max-w-2xl mb-10 font-light">
+                A premium digital agency delivering high-end technical and creative solutions for the modern web.
+            </p>
+            <a href="#services" data-link class="glass-panel px-8 py-4 rounded-full font-orbitron text-nyxCyan hover:text-white uppercase tracking-widest text-sm hover:bg-nyxCyan/20 transition-all">
+                Initialize Sequence
+            </a>
+        </section>
+
+        <section id="services" class="page-section pt-10">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4">CORE <span class="text-neon-red">PROTOCOLS</span></h2>
+                <p class="text-gray-400 text-xl">Our specialized service packages.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="glass-panel p-8 rounded-2xl relative overflow-hidden group">
+                    <div class="absolute top-0 left-0 w-1 h-full bg-nyxRed group-hover:w-full group-hover:opacity-10 transition-all duration-500 z-0"></div>
+                    <div class="relative z-10">
+                        <h3 class="text-2xl font-bold mb-4 text-white group-hover:text-nyxRed transition-colors">Video Editing</h3>
+                        <p class="text-gray-400">Professional, high-impact video production and post-processing tailored for digital dominance.</p>
+                    </div>
+                </div>
+
+                <div class="glass-panel p-8 rounded-2xl relative overflow-hidden group">
+                    <div class="absolute top-0 left-0 w-1 h-full bg-nyxCyan group-hover:w-full group-hover:opacity-10 transition-all duration-500 z-0"></div>
+                    <div class="relative z-10">
+                        <h3 class="text-2xl font-bold mb-4 text-white group-hover:text-nyxCyan transition-colors">Web Development</h3>
+                        <p class="text-gray-400">Architecting modern, lightning-fast, and responsive platforms using cutting-edge frameworks.</p>
+                    </div>
+                </div>
+
+                <div class="glass-panel p-8 rounded-2xl relative overflow-hidden group">
+                    <div class="absolute top-0 left-0 w-1 h-full bg-nyxRed group-hover:w-full group-hover:opacity-10 transition-all duration-500 z-0"></div>
+                    <div class="relative z-10">
+                        <h3 class="text-2xl font-bold mb-4 text-white group-hover:text-nyxRed transition-colors">App Development</h3>
+                        <p class="text-gray-400">Engineering robust mobile and desktop applications designed for seamless user experiences.</p>
+                    </div>
+                </div>
+
+                <div class="glass-panel p-8 rounded-2xl relative overflow-hidden group">
+                    <div class="absolute top-0 left-0 w-1 h-full bg-nyxCyan group-hover:w-full group-hover:opacity-10 transition-all duration-500 z-0"></div>
+                    <div class="relative z-10">
+                        <h3 class="text-2xl font-bold mb-4 text-white group-hover:text-nyxCyan transition-colors">Code Fixing</h3>
+                        <p class="text-gray-400">Advanced debugging, refactoring, and optimization to rescue and repair existing codebases.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="portfolio" class="page-section pt-10">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4">DATA <span class="text-neon-cyan">ARCHIVES</span></h2>
+                <p class="text-gray-400 text-xl">Recent transmissions and past work.</p>
+            </div>
+            
+            <div class="glass-panel p-12 rounded-2xl text-center border-dashed border-2 border-gray-700">
+                <p class="text-2xl text-gray-500 italic">Project files decrypting... (Portfolio content goes here)</p>
+            </div>
+        </section>
+
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            // 1. Handle Intro Animation
+            const loader = document.getElementById('intro-loader');
+            setTimeout(() => {
+                loader.style.opacity = '0';
+                loader.style.visibility = 'hidden';
+            }, 2000); // 2 seconds intro
+
+            // 2. SPA Navigation Logic
+            const links = document.querySelectorAll('[data-link]');
+            const sections = document.querySelectorAll('.page-section');
+
+            links.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    
+                    // Get target section ID from href
+                    const targetId = link.getAttribute('href').substring(1);
+                    
+                    // Only navigate if it's not already the active section
+                    const currentActive = document.querySelector('.page-section.active');
+                    if(currentActive.id !== targetId) {
+                        
+                        // Hide all sections
+                        sections.forEach(sec => {
+                            sec.classList.remove('active');
+                        });
+
+                        // Show target section (CSS animation 'slideUpFade' triggers automatically on display:block)
+                        const targetSection = document.getElementById(targetId);
+                        targetSection.classList.add('active');
+                        
+                        // Optional: Smooth scroll to top when changing 'pages'
+                        window.scrollTo({ top: 0, behavior: 'smooth' });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
